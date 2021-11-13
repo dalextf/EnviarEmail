@@ -10,10 +10,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.SimpleEmail;
+import org.apache.commons.mail.EmailException;
 
 import java.io.IOException;
 import java.net.URL;
@@ -123,6 +126,7 @@ public class Controller implements Initializable {
             successAccess();
         } catch (Exception e) {
             errorAccess();
+            e.printStackTrace();
         }
     }
 
@@ -142,6 +146,7 @@ public class Controller implements Initializable {
         Alert alert=new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText("Mensaje enviado con éxito a '"+ destinatarioText.textProperty().get() +"'.");
         alert.setTitle("Mensaje enviado");
+        App.getPrimaryStage().getIcons().add(new Image(getClass().getResourceAsStream("images/email-send-icon-32x32.png")));
         alert.showAndWait();
     }
 
@@ -149,6 +154,8 @@ public class Controller implements Initializable {
         Alert alert=new Alert(Alert.AlertType.ERROR);
         alert.setHeaderText("No se pudo enviar el email");
         alert.setTitle("Error");
+        alert.setContentText("Invalid message supplied");
+        App.getPrimaryStage().getIcons().add(new Image("images/email-send-icon-32x32.png"));
         alert.showAndWait();
     }
 

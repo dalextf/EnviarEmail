@@ -44,5 +44,5 @@ Existe una cuenta de correo de prueba en GMail creada exclusivamente para el mó
 Servidor SMTP: smtp.gmail.com:465
 SSL: Sí
 Email/Usuario: dad.iesdpm@gmail.com
-Contraseña: Minikit0$
+Contraseña: chucknorri$21
 ```
