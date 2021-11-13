@@ -124,7 +124,7 @@ public class Controller implements Initializable {
             mensajeText.clear();
 
             successAccess();
-        } catch (Exception e) {
+        } catch (EmailException e) {
             errorAccess();
             e.printStackTrace();
         }
